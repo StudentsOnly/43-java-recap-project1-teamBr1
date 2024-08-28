@@ -1,0 +1,81 @@
+@startuml
+
+class Hospital {
+    - List<Patient> patients
+    - List<Doctor> doctors
+    - List<Appointment> appointments
+    - List<Treatment> treatments
+    + void addPatient(Patient p)
+    + void addDoctor(Doctor d)
+    + void addAppointment(App a)
+    + Doctor getDoctor(Doctor d)
+    + Patient getPatient(Patient p)
+    + App getAppointment(App app)
+    + void displayDoctors()
+    + void displayPatients()
+    + void displayAppointm()
+    + Patient getPatient(String name)
+    + Patient getPatient(int id)
+    + Doctor getDoctor(int id)
+    + Doctor getDoctor(String name)
+    + Appointment getAppointment(int id)
+    + Treatment getTreatment(String name)
+    + Treatment getTreatment(int id)
+}
+
+class Patient {
+    - String patientName
+    - int patientID
+    - int age
+    - String gender
+    - String patientContact
+    - static int lastID = 1000
+    + boolean equals(Patient p)
+    + void displayPatientInfo()
+}
+
+class Doctor {
+    - int doctorID
+    - String doctorName
+    - String specialization
+    - static int lastID = 2000
+    + boolean equals(Doctor doctor)
+    + void displayDoctorInfo()
+    + getters and setters()
+
+}
+
+class Appointment {
+    - private Doctor doctor;
+    - private Patient patient;
+    - private ArrayList<Treatment> treatments;
+    - private static int lastID = 0;
+    - private int appointmentID;
+    - private LocalDate date;
+    - private String timeSlot;
+    + public boolean equals(Appointment app);
+    + public double calculateBill();
+    + public void displayAppointmentInfo();
+    + Appointment()
+    + getters and setters()
+}
+
+class Treatment {
+    - private String treatmentName;
+    - private static int lastID;
+    - private int treatmentID;
+    - private double treatmentPrice;
+    + public boolean equals(Treatment treatment);
+    + public void displayTreatmentInfo();
+    + public String toString();
+    + Treatment()
+    + getters and setters()
+}
+
+Hospital *-- Patient
+Hospital *-- Doctor
+Hospital *-- Appointment
+Hospital *-- Treatment
+Appointment *-- Treatment
+
+@enduml
