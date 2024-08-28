@@ -1,3 +1,6 @@
+
+public class Appointment {
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -121,6 +124,12 @@ public class Appointment {
             }
         }
         System.out.println("\tTotal bill: " + String.format("%.2f", calculateBill()) + "$");
-
     }
-}
+
+    public void addTreatment(Treatment treatment) {
+    }
+
+    public void displayInfo() {
+    }
+
+

@@ -10,15 +10,16 @@ public class Patient {
     private static int lastID = 1000;
 
 
-    public Patient(String name, int age, String gender, String contact){
+    public Patient(String name, int age, String gender, String contactInfo){
         this.patientName = name;
         setAge(age);
         setGender(gender);
-        this.patientContact = contact;
+        this.patientContact = contactInfo;
         lastID++;
         this.patientID = lastID;
 
     }
+  
 /*
     public Patient(){
         this.patientName = "-";
@@ -33,7 +34,7 @@ public class Patient {
         return patientName;
     }
 
-    public void setPatientName(String patientName) {
+    public void setName(String patientName) {
         this.patientName = patientName;
     }
 
@@ -75,7 +76,7 @@ public class Patient {
         return patientContact;
     }
 
-    public void setPatientContact(String patientContact) {
+    public void setContactInfo(String patientContact) {
         this.patientContact = patientContact;
     }
 
@@ -94,8 +95,7 @@ public class Patient {
     }
 
 */
-
-    public void displayPatientInfo(){
+    public void displayInfo(){
         System.out.println("\nPatient (ID " + patientID + "):");
         System.out.println("\tName: " + patientName);
         System.out.println("\tAge: " + age);
@@ -110,4 +110,5 @@ public class Patient {
                 ", '" + patientName + "']";
     }
 }
+
 

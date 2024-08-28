@@ -56,7 +56,7 @@ public class Treatment {
             return treatmentID == treatment.treatmentID;
         }
     */
-    public void displayTreatmentInfo(){
+    public void displayInfo(){
         System.out.println("\nTreatment (ID " + treatmentID + ", '" + treatmentName + "'):");
         System.out.println("\tPrice: " + String.format("%.2f", treatmentPrice) + "$");
     }
@@ -69,4 +69,5 @@ public class Treatment {
                 "', " + String.format("%.2f", treatmentPrice) + "$" +"]";
     }
 }
+
 

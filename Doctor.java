@@ -56,7 +56,7 @@ public class Doctor {
     }
 */
 
-    public void displayDoctorInfo(){
+    public void displayInfo(){
         System.out.println("\nDoctor (ID " + doctorID + "):");
         System.out.println("\tName: " + doctorName);
         System.out.println("\tSpecialization: " + specialization);
@@ -71,4 +71,5 @@ public class Doctor {
                 "', '" + specialization +"']";
     }
 }
+
 
