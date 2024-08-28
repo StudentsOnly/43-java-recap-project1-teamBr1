@@ -1,6 +1,4 @@
 
-public class Appointment {
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,7 +14,7 @@ public class Appointment {
     private LocalDate date;
     private String timeSlot;
 
-    public Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot){
+    public Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot) {
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
@@ -25,7 +23,8 @@ public class Appointment {
         this.appointmentID = lastID;
         this.treatments = new ArrayList<>();
     }
-    public Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot, ArrayList<Treatment> treatments){
+
+    public Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot, ArrayList<Treatment> treatments) {
         this.doctor = doctor;
         this.patient = patient;
         this.date = date;
@@ -34,14 +33,15 @@ public class Appointment {
         this.appointmentID = lastID;
         this.treatments = treatments;
     }
-/*
-    public Appointment(){
-        lastID++;
-        this.appointmentID = lastID;
-        this.treatments = new ArrayList<>();
-        this.date = LocalDate.now();
-    }
-*/
+
+    /*
+        public Appointment(){
+            lastID++;
+            this.appointmentID = lastID;
+            this.treatments = new ArrayList<>();
+            this.date = LocalDate.now();
+        }
+    */
     public Doctor getDoctor() {
         return doctor;
     }
@@ -99,15 +99,15 @@ public class Appointment {
             return appointmentID == app.appointmentID;
         }
     */
-    public double calculateBill(){
+    public double calculateBill() {
         double sum = 0;
-        for(Treatment treatment:treatments){
+        for (Treatment treatment : treatments) {
             sum += treatment.getTreatmentPrice();
         }
         return sum;
     }
 
-    public void displayAppointmentInfo(){
+    public void displayAppointmentInfo() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         String formattedDate = date.format(formatter);
 
@@ -116,10 +116,10 @@ public class Appointment {
         System.out.println("\t" + doctor);
         System.out.println("\t" + patient);
         System.out.println("\tTreatments:");
-        if(treatments.isEmpty()){
+        if (treatments.isEmpty()) {
             System.out.println("\t\t-");
-        }else{
-            for(Treatment treatment:treatments){
+        } else {
+            for (Treatment treatment : treatments) {
                 System.out.println("\t\t- " + treatment);
             }
         }
@@ -131,5 +131,6 @@ public class Appointment {
 
     public void displayInfo() {
     }
+}
 
 

@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ public class Hospital {
     }
 
     public boolean addPatient(Patient patient) {
-        if (getPatient(patient.getPatientId()) == null)
+        if (getPatient(patient.getPatientID()) == null)
         {
             return patients.add(patient);
         }
@@ -26,7 +27,7 @@ public class Hospital {
 
     public Patient getPatient(int id) {
         for (var p : patients) {
-            if (Integer.compare(p.getPatientId(), id) == 0) {
+            if (Integer.compare(p.getPatientID(), id) == 0) {
                 return p;
             }
         }
@@ -43,7 +44,7 @@ public class Hospital {
     }
 
     public boolean addDoctor(Doctor doctor) {
-        if (getDoctor(doctor.getDoctorId()) == null)
+        if (getDoctor(doctor.getDoctorID()) == null)
         {
             return doctors.add(doctor);
         }
@@ -52,7 +53,7 @@ public class Hospital {
 
     public Doctor getDoctor(int id) {
         for (var d : doctors) {
-            if (Integer.compare(d.getDoctorId(), id) == 0) {
+            if (Integer.compare(d.getDoctorID(), id) == 0) {
                 return d;
             }
         }
@@ -77,7 +78,7 @@ public class Hospital {
 
     public Appointment getAppointment(int id) {
         for (var a : appointments) {
-            if (Integer.compare(a.getId(), id) == 0) {
+            if (Integer.compare(a.getAppointmentID(), id) == 0) {
                 return a;
             }
         }
@@ -93,7 +94,7 @@ public class Hospital {
   
     public Treatment getTreatment(int id) {
         for (var a : treatments) {
-            if (Integer.compare(a.getId(), id) == 0) {
+            if (Integer.compare(a.getTreatmentID(), id) == 0) {
                 return a;
             }
         }
@@ -144,7 +145,9 @@ public class Hospital {
     public void showFreeTimeSlot(Doctor doctor, String date) {
     }
 
-    public Appointment addAppointment(Patient patient, Doctor doctor, String date, String time) {
+    public Appointment addAppointment(Patient patient, Doctor doctor, String appDate, String time) {
+
+        LocalDate date = LocalDate.parse(appDate);
         return new Appointment(doctor, patient, date, time);
     }
 

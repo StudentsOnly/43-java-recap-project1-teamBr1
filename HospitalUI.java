@@ -127,8 +127,8 @@ public class HospitalUI {
                     int cancelAppId = scanner.nextInt();
                     Appointment foundApp  =  hospital.getAppointment(cancelAppId);
 
-                    if (foundApp != null) {
-                        foundApp.cancelAppointment(cancelAppId);
+                   if (foundApp != null) {
+                      //  foundApp.cancelAppointment(cancelAppId);
                     } else {
                         System.out.println("Appointment not found.");
                     }
@@ -157,7 +157,7 @@ public class HospitalUI {
                     System.out.print("All upcoming appointments: ");
 
                     LocalDateTime now = LocalDateTime.now();
-                    hospital.displayUpcomingAppointments(now);
+                    //hospital.displayUpcomingAppointments(now);
                     break;
 
                 case 10:
@@ -223,8 +223,8 @@ public class HospitalUI {
                     System.out.print("Enter treatment ID or name: ");
                     String treatmentIdOrName = scanner.nextLine();
                     Treatment foundTreatment  =  isInteger(treatmentIdOrName)  ?
-                            hospital.geTreatment(Integer.parseInt(treatmentIdOrName)) :
-                            hospital.geTreatment(treatmentIdOrName);
+                            hospital.getTreatment(Integer.parseInt(treatmentIdOrName)) :
+                            hospital.getTreatment(treatmentIdOrName);
 
                    if (foundTreatment != null) {
                         foundTreatment.displayInfo();
@@ -248,7 +248,7 @@ public class HospitalUI {
                     //   Show Hospital Billing Info by Date
                     System.out.print("Enter  date (YYYY-MM-DD): ");
                     String billingDate = scanner.nextLine();
-                    hospital.showBillingInfo(billingDate);
+                  //  hospital.showBillingInfo(billingDate);
                     break;
                 case 16:
                     // Exit the program
