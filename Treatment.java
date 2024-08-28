@@ -6,13 +6,13 @@ public class Treatment {
     private static int lastID;
     private int treatmentID;
     private double treatmentPrice;
-
+/*
     public Treatment(){
         lastID++;
         this.treatmentID = lastID;
         this.treatmentName = "-";
     }
-
+*/
     public Treatment(String name, double price){
         this.treatmentName = name;
         this.treatmentPrice = price;
@@ -49,10 +49,7 @@ public class Treatment {
         return treatmentID == treatment.treatmentID;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(treatmentID);
-    }
+
 
     /*
         public boolean equals(Treatment treatment) {

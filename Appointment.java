@@ -31,14 +31,14 @@ public class Appointment {
         this.appointmentID = lastID;
         this.treatments = treatments;
     }
-
+/*
     public Appointment(){
         lastID++;
         this.appointmentID = lastID;
         this.treatments = new ArrayList<>();
         this.date = LocalDate.now();
     }
-
+*/
     public Doctor getDoctor() {
         return doctor;
     }
@@ -89,11 +89,6 @@ public class Appointment {
         if (o == null || getClass() != o.getClass()) return false;
         Appointment that = (Appointment) o;
         return appointmentID == that.appointmentID;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(appointmentID);
     }
 
     /*

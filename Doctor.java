@@ -13,14 +13,14 @@ public class Doctor {
         lastID++;
         this.doctorID = lastID;
     }
-
+/*
     public Doctor(){
         this.doctorName = "-";
         this.specialization = "-";
         lastID++;
         this.doctorID = lastID;
     }
-
+*/
     public int getDoctorID() {
         return doctorID;
     }
@@ -49,10 +49,6 @@ public class Doctor {
         return doctorID == doctor.doctorID;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(doctorID);
-    }
 
     /*
     public boolean equals(Doctor doctor) {

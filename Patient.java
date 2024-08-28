@@ -19,7 +19,7 @@ public class Patient {
         this.patientID = lastID;
 
     }
-
+/*
     public Patient(){
         this.patientName = "-";
         this.age = 0;
@@ -28,7 +28,7 @@ public class Patient {
         lastID++;
         this.patientID = lastID;
     }
-
+*/
     public String getPatientName() {
         return patientName;
     }
@@ -87,10 +87,6 @@ public class Patient {
         return patientID == patient.patientID;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(patientID);
-    }
 
  /*
     public boolean equals(Patient p) {
