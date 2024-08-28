@@ -40,6 +40,7 @@ public class HospitalUI {
                     String name = scanner.nextLine();
                     System.out.print("Enter patient age: ");
                     int age = scanner.nextInt();
+                    scanner.nextLine();  // Consume newline
                     System.out.print("Enter patient gender: ");
                     String gender = scanner.nextLine();
                     System.out.print("Enter patient contact information: ");
