@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDateTime;
 
 public class Hospital {
 
@@ -68,7 +69,10 @@ public class Hospital {
     }
 
     public boolean addAppointment(Appointment appointment) {
-        return appointments.add(appointment);
+        if (getAppointment(appointment.getAppointmentID()) == null) {
+            return appointments.add(appointment);
+        }
+        return false;
     }
 
     public Appointment getAppointment(int id) {
@@ -81,9 +85,12 @@ public class Hospital {
     }
 
     public boolean addTreatment(Treatment treatment) {
-        return treatments.add(treatment);
+        if (getTreatment(treatment.getTreatmentID()) == null) {
+            return treatments.add(treatment);
+        }
+        return false;
     }
-
+  
     public Treatment getTreatment(int id) {
         for (var a : treatments) {
             if (Integer.compare(a.getId(), id) == 0) {
@@ -92,17 +99,14 @@ public class Hospital {
         }
         return null;
     }
-
-    public void displayPatient(int id) {
-        System.out.println(getPatient(id));
-    }
-
-    public void displayDoctor(int id) {
-        System.out.println(getDoctor(id));
-    }
-
-    public void displayAppointment(int id) {
-        System.out.println(getAppointment(id));
+  
+    public Treatment getTreatment(String name) {
+       for (var d : treatments) {
+           if (d.getTreatmentName().equalsIgnoreCase(name)) {
+                return d;
+            }
+        }
+        return null;
     }
 
     public void displayPatients() {
@@ -127,5 +131,24 @@ public class Hospital {
         System.out.println("------------");
         appointments.forEach(System.out::println);
         System.out.println();
+    }
+  
+      public void displayTreatments() {
+        System.out.println();
+        System.out.println("Treatments");
+        System.out.println("------------");
+        treatments.forEach(System.out::println);
+        System.out.println();
+    }
+
+    public void showFreeTimeSlot(Doctor doctor, String date) {
+    }
+
+    public Appointment addAppointment(Patient patient, Doctor doctor, String date, String time) {
+        return new Appointment(doctor, patient, date, time);
+    }
+
+    public void displayUpcomingAppointments() {
+      // upcoming appointments after now
     }
 }

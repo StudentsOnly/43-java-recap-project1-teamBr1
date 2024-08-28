@@ -31,7 +31,11 @@ class Patient {
     - String patientContact
     - static int lastID = 1000
     + boolean equals(Patient p)
+    + boolean equals(Object o)
     + void displayPatientInfo()
+    + String toString()
+    + getters and setters()
+
 }
 
 class Doctor {
@@ -42,6 +46,8 @@ class Doctor {
     + boolean equals(Doctor doctor)
     + void displayDoctorInfo()
     + getters and setters()
+    + boolean equals(Object o)
+    + String toString()
 
 }
 
@@ -54,9 +60,12 @@ class Appointment {
     - private LocalDate date;
     - private String timeSlot;
     + public boolean equals(Appointment app);
+    + public boolean equals(Object o)
     + public double calculateBill();
     + public void displayAppointmentInfo();
     + Appointment()
+    + Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot)
+    + Appointment(Doctor doctor, Patient patient, LocalDate date, String timeSlot, ArrayList<Treatment> treatments)
     + getters and setters()
 }
 
@@ -66,9 +75,11 @@ class Treatment {
     - private int treatmentID;
     - private double treatmentPrice;
     + public boolean equals(Treatment treatment);
+    + public boolean equals(Object o)
     + public void displayTreatmentInfo();
     + public String toString();
     + Treatment()
+    + Treatment(String name, double price)
     + getters and setters()
 }
 
