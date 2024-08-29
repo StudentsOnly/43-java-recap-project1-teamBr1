@@ -121,8 +121,8 @@ public class HospitalUI {
                                 if (treatment == null) {
                                     System.out.println("Treatment not found.");
                                 } else {
-                                    boolean treatHospAdded = hospital.addTreatment(treatment);
-                                    if (treatHospAdded) {
+                                    boolean treatAdded = appointment.addTreatment(treatment);
+                                    if (treatAdded) {
                                         System.out.println("Treatment added to appointment successfully");
                                     }
                                     else
