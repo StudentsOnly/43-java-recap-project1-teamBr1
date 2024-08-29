@@ -4,9 +4,9 @@ public class HospitalUI {
     public static void interact(Hospital hospital){
 
         Scanner scanner = new Scanner(System.in);
-            // User Interface
-            while (true) {
-                try {
+        // User Interface
+        while (true) {
+            try {
                 System.out.println("\nHospital Management System");
                 System.out.println("1. Register a Patient");
                 System.out.println("2. Add a Doctor to the Hospital");
@@ -106,58 +106,6 @@ public class HospitalUI {
                                 } else {
                                     appointment.addTreatment(treatment);
                                 }
-                        };
-                    }while(!stopAdding);
-                    break;
-
-
-                case 5:
-                    System.out.print("All upcoming appointments: ");
-
-                    // View all appointments
-                    hospital.displayUpcomingAppointments();
-
-                    // Show Appointment Info by ID or Name
-                    System.out.print("Enter appointment ID to cancel: ");
-                    int cancelAppId = scanner.nextInt();
-                    Appointment foundApp  =  hospital.getAppointment(cancelAppId);
-
-                    if (foundApp != null) {
-                        hospital.cancelAppointment(cancelAppId);
-                    } else {
-                        System.out.println("Appointment not found.");
-                    }
-                    break;
-
-                case 6:
-                    // View all patients
-                    System.out.print("All patients: ");
-                    hospital.displayPatients();
-                    break;
-
-                case 7:
-                    System.out.print("All doctors: ");
-                    hospital.displayDoctors();
-                    break;
-
-                case 8:
-                    // View all appointments
-                    System.out.print("All treatments: ");
-                    hospital.displayTreatments();
-                    break;
-
-
-                case 9:
-                    // View all upcoming appointments
-                    System.out.print("All upcoming appointments: ");
-
-                    hospital.displayUpcomingAppointments();
-                    break;
-
-                case 10:
-                    //Show Patient Info by ID or name
-                    System.out.print("Enter patient ID or name: ");
-                    String patientIdOrName = scanner.nextLine();
                             }
                             ;
                         } while (!stopAdding);
@@ -174,7 +122,7 @@ public class HospitalUI {
                         Appointment foundApp = hospital.getAppointment(cancelAppId);
 
                         if (foundApp != null) {
-                            hospital.cancelAppointment(cancelAppId);
+                              hospital.cancelAppointment(cancelAppId);
                         } else {
                             System.out.println("Appointment not found.");
                         }
@@ -219,14 +167,6 @@ public class HospitalUI {
                             System.out.println("Patient not found.");
                         }
                         break;
-
-                case 13:
-                    // Show Treatment Info by ID or Name
-                    System.out.print("Enter treatment ID or name: ");
-                    String treatmentIdOrName = scanner.nextLine();
-                    Treatment foundTreatment  =  isInteger(treatmentIdOrName)  ?
-                            hospital.getTreatment(Integer.parseInt(treatmentIdOrName)) :
-                            hospital.getTreatment(treatmentIdOrName);
 
                     case 11:
                         //Update Patient Info by ID or name
@@ -282,7 +222,6 @@ public class HospitalUI {
                         }
                         break;
 
-
                     case 12:
                         //  Show Doctor Info by ID or name
                         System.out.print("Enter doctor ID or name: ");
@@ -324,10 +263,21 @@ public class HospitalUI {
                         }
                         break;
                     case 15:
-                        //   Show Hospital Billing Info by Date
-                        System.out.print("Enter  date (YYYY-MM-DD): ");
-                        String billingDate = scanner.nextLine();
-                        //  hospital.showBillingInfo(billingDate);
+                        System.out.print("All upcoming appointments: ");
+
+                        // View all appointments
+                        hospital.displayUpcomingAppointments();
+
+                        // Show Appointment Info by ID or Name
+                        System.out.print("Enter appointment ID to show billing Information: ");
+                        int billAppId = scanner.nextInt();
+                        Appointment billApp = hospital.getAppointment(billAppId);
+
+                        if (billApp != null) {
+                            hospital.showBillingInfo(billAppId);
+                        } else {
+                            System.out.println("Appointment not found.");
+                        }
                         break;
                     case 16:
                         // Exit the program
@@ -340,13 +290,13 @@ public class HospitalUI {
                         break;
                 }
 
-                }
-                catch(InputMismatchException exception)
-                {
-                    System.out.println("Invalid input. Please try again.");
-                    scanner.nextLine();
-                }
             }
+            catch(InputMismatchException exception)
+            {
+                System.out.println("Invalid input. Please try again.");
+                scanner.nextLine();
+            }
+        }
 
     }
 
