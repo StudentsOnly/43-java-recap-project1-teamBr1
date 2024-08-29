@@ -106,6 +106,58 @@ public class HospitalUI {
                                 } else {
                                     appointment.addTreatment(treatment);
                                 }
+                        };
+                    }while(!stopAdding);
+                    break;
+
+
+                case 5:
+                    System.out.print("All upcoming appointments: ");
+
+                    // View all appointments
+                    hospital.displayUpcomingAppointments();
+
+                    // Show Appointment Info by ID or Name
+                    System.out.print("Enter appointment ID to cancel: ");
+                    int cancelAppId = scanner.nextInt();
+                    Appointment foundApp  =  hospital.getAppointment(cancelAppId);
+
+                    if (foundApp != null) {
+                        hospital.cancelAppointment(cancelAppId);
+                    } else {
+                        System.out.println("Appointment not found.");
+                    }
+                    break;
+
+                case 6:
+                    // View all patients
+                    System.out.print("All patients: ");
+                    hospital.displayPatients();
+                    break;
+
+                case 7:
+                    System.out.print("All doctors: ");
+                    hospital.displayDoctors();
+                    break;
+
+                case 8:
+                    // View all appointments
+                    System.out.print("All treatments: ");
+                    hospital.displayTreatments();
+                    break;
+
+
+                case 9:
+                    // View all upcoming appointments
+                    System.out.print("All upcoming appointments: ");
+
+                    hospital.displayUpcomingAppointments();
+                    break;
+
+                case 10:
+                    //Show Patient Info by ID or name
+                    System.out.print("Enter patient ID or name: ");
+                    String patientIdOrName = scanner.nextLine();
                             }
                             ;
                         } while (!stopAdding);
@@ -122,7 +174,7 @@ public class HospitalUI {
                         Appointment foundApp = hospital.getAppointment(cancelAppId);
 
                         if (foundApp != null) {
-                            //  hospital.cancelAppointment(cancelAppId);
+                            hospital.cancelAppointment(cancelAppId);
                         } else {
                             System.out.println("Appointment not found.");
                         }
@@ -150,7 +202,7 @@ public class HospitalUI {
                         // View all upcoming appointments
                         System.out.print("All upcoming appointments: ");
 
-                        //hospital.displayUpcomingAppointments();
+                        hospital.displayUpcomingAppointments();
                         break;
 
                     case 10:
@@ -167,6 +219,14 @@ public class HospitalUI {
                             System.out.println("Patient not found.");
                         }
                         break;
+
+                case 13:
+                    // Show Treatment Info by ID or Name
+                    System.out.print("Enter treatment ID or name: ");
+                    String treatmentIdOrName = scanner.nextLine();
+                    Treatment foundTreatment  =  isInteger(treatmentIdOrName)  ?
+                            hospital.getTreatment(Integer.parseInt(treatmentIdOrName)) :
+                            hospital.getTreatment(treatmentIdOrName);
 
                     case 11:
                         //Update Patient Info by ID or name
@@ -221,6 +281,7 @@ public class HospitalUI {
                             System.out.println("Patient not found.");
                         }
                         break;
+
 
                     case 12:
                         //  Show Doctor Info by ID or name
