@@ -24,30 +24,32 @@ class Hospital {
 }
 
 class Patient {
-    - String patientName
-    - int patientID
-    - int age
-    - String gender
-    - String patientContact
-    - static int lastID = 1000
-    + boolean equals(Patient p)
-    + boolean equals(Object o)
-    + void displayPatientInfo()
-    + String toString()
+    - private String patientName
+    - private int patientID
+    - private int age
+    - private String gender
+    - private String patientContact
+    - private static int lastID = 1000
+    + public boolean equals(Patient p)
+    + public boolean equals(Object o)
+    + public void displayPatientInfo()
+    + public String toString()
+    + public int ageValidator(int age)
+    + public String genderValidator(String gender)
     + getters and setters()
 
 }
 
 class Doctor {
-    - int doctorID
-    - String doctorName
-    - String specialization
-    - static int lastID = 2000
-    + boolean equals(Doctor doctor)
-    + void displayDoctorInfo()
+    - private int doctorID
+    - private String doctorName
+    - private String specialization
+    - private static int lastID = 2000
+    + public boolean equals(Doctor doctor)
+    + public void displayDoctorInfo()
     + getters and setters()
-    + boolean equals(Object o)
-    + String toString()
+    + public boolean equals(Object o)
+    + public String toString()
 
 }
 

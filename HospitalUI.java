@@ -22,7 +22,7 @@ public class HospitalUI {
                 System.out.println("12. Show Doctor Info by ID or Name");
                 System.out.println("13. Show Treatment Info by ID or Name");
                 System.out.println("14. Show Appointment Info by ID");
-                System.out.println("15. Show Hospital Billing Info by Date");
+                System.out.println("15. Show Billing Info for Appointment");
                 System.out.println("16. Exit");
                 System.out.print("Choose an option: ");
                 int choice = scanner.nextInt();
@@ -40,7 +40,13 @@ public class HospitalUI {
                         String gender = scanner.nextLine();
                         System.out.print("Enter patient contact information: ");
                         String contactInfo = scanner.nextLine();
-                        hospital.addPatient(new Patient(name, age, gender, contactInfo));
+                        boolean patAdded = hospital.addPatient(new Patient(name, age, gender, contactInfo));
+                        if (patAdded) {
+                            System.out.println("Patient added successfully");
+                        }
+                        else
+                            System.out.println("Patient not added successfully");
+
 
                         break;
 
@@ -49,7 +55,12 @@ public class HospitalUI {
                         String doctorName = scanner.nextLine();
                         System.out.print("Enter doctor specialization: ");
                         String doctorSpecialization = scanner.nextLine();
-                        hospital.addDoctor(new Doctor(doctorName, doctorSpecialization));
+                        boolean docAdded = hospital.addDoctor(new Doctor(doctorName, doctorSpecialization));
+                        if (docAdded) {
+                            System.out.println("Doctor added successfully");
+                        }
+                        else
+                            System.out.println("Doctor not added successfully");
                         break;
 
                     case 3: // Add a Treatment to the Hospital
@@ -57,7 +68,11 @@ public class HospitalUI {
                         String treatmentName = scanner.nextLine();
                         System.out.print("Enter treatment price:");
                         double treatmentPrice = scanner.nextDouble();
-                        hospital.addTreatment(new Treatment(treatmentName, treatmentPrice));
+                        boolean treatAdd = hospital.addTreatment(new Treatment(treatmentName, treatmentPrice));
+                        if (treatAdd)
+                            System.out.println("Treatment added successfully");
+                        else
+                            System.out.println("Treatment not added successfully");
                         break;
 
                     case 4:
@@ -89,6 +104,8 @@ public class HospitalUI {
                         System.out.print("Enter appointment time slot (8-16): ");
                         String timeSlot = scanner.nextLine();
                         Appointment appointment = hospital.addAppointment(patient, doctor, date, timeSlot);
+                        if (appointment != null) {
+                            System.out.println("Appointment added successfully");
                         System.out.print("Choose from available treatments:");
                         hospital.displayTreatments();
 
@@ -104,11 +121,17 @@ public class HospitalUI {
                                 if (treatment == null) {
                                     System.out.println("Treatment not found.");
                                 } else {
-                                    appointment.addTreatment(treatment);
+                                    boolean treatHospAdded = hospital.addTreatment(treatment);
+                                    if (treatHospAdded) {
+                                        System.out.println("Treatment added to appointment successfully");
+                                    }
+                                    else
+                                        System.out.println("Treatment not added to appointment successfully");
                                 }
                             }
-                            ;
-                        } while (!stopAdding);
+
+                        } while (!stopAdding);}
+                        else System.out.println("Appointment not added successfully");
                         break;
                     case 5:
                         System.out.print("All upcoming appointments: ");
@@ -123,6 +146,7 @@ public class HospitalUI {
 
                         if (foundApp != null) {
                               hospital.cancelAppointment(cancelAppId);
+                              System.out.println("Appointment cancelled successfully");
                         } else {
                             System.out.println("Appointment not found.");
                         }
@@ -149,7 +173,6 @@ public class HospitalUI {
                     case 9:
                         // View all upcoming appointments
                         System.out.print("All upcoming appointments: ");
-
                         hospital.displayUpcomingAppointments();
                         break;
 
