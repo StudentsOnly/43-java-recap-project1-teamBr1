@@ -166,7 +166,7 @@ public class Hospital {
             System.out.println("Error in showFreeTimeSlot: " + e.getMessage());
         }
     }
-
+  
     public Appointment addAppointment(Patient patient, Doctor doctor, String dateString, String time) {
 
         try {

@@ -122,7 +122,8 @@ public class Appointment {
                 System.out.println("\t\t- " + treatment);
             }
         }
-        System.out.println("\tTotal bill: " + String.format("%.2f", calculateBill()) + "$");
+
+        System.out.println("\tTotal bill: " + String.format("%.2f", (Double)calculateBill()) + "$");
     }
 
     public void addTreatment(Treatment treatment) {
