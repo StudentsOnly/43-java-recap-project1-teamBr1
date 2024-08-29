@@ -136,6 +136,13 @@ public class Appointment {
 
     public void displayInfo() {
     }
+
+    @Override
+    public String toString() {
+        return "%-10s %-12s %-12d %-12s %-12s"
+                .formatted(date.toString(), timeSlot + ":00", appointmentID, doctor.getDoctorName(),
+                patient.getPatientName());
+    }
 }
 
 
