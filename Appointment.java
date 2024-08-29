@@ -126,7 +126,12 @@ public class Appointment {
         System.out.println("\tTotal bill: " + String.format("%.2f", (Double)calculateBill()) + "$");
     }
 
-    public void addTreatment(Treatment treatment) {
+    public boolean addTreatment(Treatment treatment) {
+        if(treatment != null){
+            return treatments.add(treatment);
+        }else{
+            return false;
+        }
     }
 
     public void displayInfo() {
