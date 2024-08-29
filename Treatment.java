@@ -58,7 +58,7 @@ public class Treatment {
     */
     public void displayInfo(){
         System.out.println("\nTreatment (ID " + treatmentID + ", '" + treatmentName + "'):");
-        System.out.println("\tPrice: " + String.format("%.2f", treatmentPrice) + "$");
+        System.out.println("\tPrice: " + String.format("%.2f", (Double)treatmentPrice) + "$");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class Treatment {
         return "Treatment [" +
                 "ID = " + treatmentID +
                 ", '" + treatmentName +
-                "', " + String.format("%.2f", treatmentPrice) + "$" +"]";
+                "', " + String.format("%.2f", (Double)treatmentPrice) + "$" +"]";
     }
 }
 
