@@ -128,7 +128,7 @@ public class HospitalUI {
                     Appointment foundApp  =  hospital.getAppointment(cancelAppId);
 
                     if (foundApp != null) {
-                        foundApp.cancelAppointment(cancelAppId);
+                        hospital.cancelAppointment(cancelAppId);
                     } else {
                         System.out.println("Appointment not found.");
                     }
@@ -156,8 +156,7 @@ public class HospitalUI {
                     // View all upcoming appointments
                     System.out.print("All upcoming appointments: ");
 
-                    LocalDateTime now = LocalDateTime.now();
-                    hospital.displayUpcomingAppointments(now);
+                    hospital.displayUpcomingAppointments();
                     break;
 
                 case 10:
@@ -223,8 +222,8 @@ public class HospitalUI {
                     System.out.print("Enter treatment ID or name: ");
                     String treatmentIdOrName = scanner.nextLine();
                     Treatment foundTreatment  =  isInteger(treatmentIdOrName)  ?
-                            hospital.geTreatment(Integer.parseInt(treatmentIdOrName)) :
-                            hospital.geTreatment(treatmentIdOrName);
+                            hospital.getTreatment(Integer.parseInt(treatmentIdOrName)) :
+                            hospital.getTreatment(treatmentIdOrName);
 
                    if (foundTreatment != null) {
                         foundTreatment.displayInfo();
