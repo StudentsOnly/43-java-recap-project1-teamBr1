@@ -134,10 +134,10 @@ public class HospitalUI {
                         else System.out.println("Appointment not added successfully");
                         break;
                     case 5:
-                        System.out.print("All upcoming appointments: ");
+                        System.out.print("All appointments: ");
 
                         // View all appointments
-                        hospital.displayUpcomingAppointments();
+                        hospital.displayAppointments();
 
                         // Show Appointment Info by ID or Name
                         System.out.print("Enter appointment ID to cancel: ");
