@@ -172,7 +172,7 @@ public class HospitalUI {
 
                     case 9:
                         // View all appointments
-                        System.out.print("All upcoming appointments: ");
+                        System.out.print("All appointments: ");
                         hospital.displayAppointments();
                         break;
 
@@ -285,7 +285,7 @@ public class HospitalUI {
                         }
                         break;
                     case 15:
-                        System.out.print("All upcoming appointments: ");
+                        System.out.print("All appointments: ");
 
                         // View all appointments
                         hospital.displayAppointments();
