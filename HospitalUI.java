@@ -16,7 +16,7 @@ public class HospitalUI {
                 System.out.println("6. View All Patients");
                 System.out.println("7. View All Doctors");
                 System.out.println("8. View All Treatments");
-                System.out.println("9. View All Upcoming Appointments");
+                System.out.println("9. View All Appointments");
                 System.out.println("10. Show Patient Info by ID or Name");
                 System.out.println("11. Update Patient Info by ID or Name");
                 System.out.println("12. Show Doctor Info by ID or Name");
@@ -210,31 +210,26 @@ public class HospitalUI {
                                 System.out.println("5. Back to the Main menu");
                                 System.out.print("Choose an option numbers 1-5: ");
                                 UpdateField = scanner.nextInt();
-                                scanner.nextLine();  // Consume newline
                                 switch (UpdateField) {
                                     case 1:
                                         System.out.print("Enter patient name: ");
                                         String updatedName = scanner.nextLine();
                                         foundPatientToUpdate.setName(updatedName);
-                                        System.out.println("Patient name updated successfully");
                                         break;
                                     case 2:
                                         System.out.print("Enter patient age: ");
                                         int updatedAge = scanner.nextInt();
                                         foundPatientToUpdate.setAge(updatedAge);
-                                        System.out.println("Patient age updated successfully");
                                         break;
                                     case 3:
                                         System.out.print("Enter patient gender: ");
                                         String updatedGender = scanner.nextLine();
                                         foundPatientToUpdate.setGender(updatedGender);
-                                        System.out.println("Patient gender updated successfully");
                                         break;
                                     case 4:
                                         System.out.print("Enter patient contact information: ");
                                         String updatedContactInfo = scanner.nextLine();
                                         foundPatientToUpdate.setContactInfo(updatedContactInfo);
-                                        System.out.println("Patient contact information updated successfully");
                                         break;
                                     case 5:
                                         System.out.print("Patient information updated.");

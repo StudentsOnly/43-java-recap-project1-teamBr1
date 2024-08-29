@@ -114,7 +114,7 @@ public class Hospital {
 
     public void displayPatients() {
         System.out.println();
-        System.out.println("Patients");
+//        System.out.println("Patients");
         System.out.println("------------");
         patients.forEach(System.out::println);
         System.out.println();
@@ -122,7 +122,7 @@ public class Hospital {
 
     public void displayDoctors() {
         System.out.println();
-        System.out.println("Doctors");
+//        System.out.println("Doctors");
         System.out.println("------------");
         doctors.forEach(System.out::println);
         System.out.println();
@@ -130,15 +130,16 @@ public class Hospital {
 
     public void displayAppointments() {
         System.out.println();
-        System.out.println("Appointments");
-        System.out.println("------------");
+        System.out.printf("%-12s %-12s %-12s %-12s %-12s %n", "Date", "timeSlot", "ID", "Patient", "Doctor");
+        System.out.println("------------".repeat(6));
+//        System.out.println(appointments);
         appointments.forEach(System.out::println);
         System.out.println();
     }
   
       public void displayTreatments() {
         System.out.println();
-        System.out.println("Treatments");
+//        System.out.println("Treatments");
         System.out.println("------------");
         treatments.forEach(System.out::println);
         System.out.println();
@@ -147,7 +148,7 @@ public class Hospital {
     public void showFreeTimeSlot(Doctor doctor, String date) {
         try {
             System.out.println();
-            System.out.println("Free Time Slots");
+//            System.out.println("Free Time Slots");
             System.out.println("------------");
             String[] timeSlots = new String[9];
             for (var a : appointments) {
@@ -171,7 +172,9 @@ public class Hospital {
 
         try {
             LocalDate date = LocalDate.parse(dateString, DateTimeFormatter.ISO_LOCAL_DATE);
-            return new Appointment(doctor, patient, date, time);
+            Appointment appointment = new Appointment(doctor, patient, date, time);
+            appointments.add(appointment);
+            return appointment;
         } catch (DateTimeParseException e) {
             System.out.println("Invalid date format: " + dateString);
             return null;
@@ -200,7 +203,7 @@ public class Hospital {
         Appointment appointment = getAppointment(appointmentID);
         if (appointment != null) {
             System.out.println("Appointment ID: " + appointmentID
-                    + "Price: $" + appointment.calculateBill());
+                    + " Price: $" + appointment.calculateBill());
         }
     }
 
