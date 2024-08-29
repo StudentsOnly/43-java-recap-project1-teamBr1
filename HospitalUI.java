@@ -171,9 +171,9 @@ public class HospitalUI {
 
 
                     case 9:
-                        // View all upcoming appointments
-                        System.out.print("All upcoming appointments: ");
-                        hospital.displayUpcomingAppointments();
+                        // View all appointments
+                        System.out.print("All appointments: ");
+                        hospital.displayAppointments();
                         break;
 
                     case 10:
@@ -239,7 +239,6 @@ public class HospitalUI {
                                         break;
                                 }
                             }
-                            ;
                         } else {
                             System.out.println("Patient not found.");
                         }
@@ -286,10 +285,10 @@ public class HospitalUI {
                         }
                         break;
                     case 15:
-                        System.out.print("All upcoming appointments: ");
+                        System.out.print("All appointments: ");
 
                         // View all appointments
-                        hospital.displayUpcomingAppointments();
+                        hospital.displayAppointments();
 
                         // Show Appointment Info by ID or Name
                         System.out.print("Enter appointment ID to show billing Information: ");
