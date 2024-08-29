@@ -178,15 +178,15 @@ public class Hospital {
         }
     }
 
-    public void displayUpcomingAppointments() {
-        System.out.println();
-        System.out.println("Upcoming Appointments");
-        System.out.println("------------");
-        appointments.forEach(s -> {if(s.getDate().isAfter(LocalDate.now())) {
-            System.out.println(s);
-        }});
-        System.out.println();
-    }
+//    public void displayUpcomingAppointments() {
+//        System.out.println();
+//        System.out.println("Upcoming Appointments");
+//        System.out.println("------------");
+//        appointments.forEach(s -> {if(s.getDate().isAfter(LocalDate.now())) {
+//            System.out.println(s);
+//        }});
+//        System.out.println();
+//    }
 
     public void cancelAppointment(int cancelAppId) {
         Appointment appointment = getAppointment(cancelAppId);
