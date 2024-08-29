@@ -12,8 +12,8 @@ public class Patient {
 
     public Patient(String name, int age, String gender, String contactInfo){
         this.patientName = name;
-        setAge(age);
-        setGender(gender);
+        this.age = ageValidator(age);
+        this.gender = genderValidator(gender);
         this.patientContact = contactInfo;
         lastID++;
         this.patientID = lastID;
@@ -47,16 +47,7 @@ public class Patient {
     }
 
     public void setGender(String gender) {
-        if(gender.charAt(0) == 'm' || gender.charAt(0) == 'M'){
-            this.gender = "masculine";
-            return;
-        }
-
-        if(gender.charAt(0) == 'f' || gender.charAt(0) == 'F'){
-            this.gender = "feminine";
-            return;
-        }
-            this.gender = "not identified";
+        this.gender = genderValidator(gender);
     }
 
     public int getAge() {
@@ -64,11 +55,7 @@ public class Patient {
     }
 
     public void setAge(int age) {
-        if(age > 0){
-            this.age = age;
-        }else{
-            this.age = 0;
-        }
+        this.age = ageValidator(age);
 
     }
 
@@ -77,8 +64,30 @@ public class Patient {
     }
 
     public void setContactInfo(String patientContact) {
+
         this.patientContact = patientContact;
     }
+
+    public int ageValidator(int age){
+        if(age > 0){
+            return age;
+        }else{
+            return 0;
+        }
+    }
+
+    public String genderValidator(String gender){
+        if(gender.charAt(0) == 'm' || gender.charAt(0) == 'M'){
+            return "masculine";
+        }
+
+        if(gender.charAt(0) == 'f' || gender.charAt(0) == 'F'){
+            return "feminine";
+
+        }
+        return "not identified";
+    }
+
 
     @Override
     public boolean equals(Object o) {
